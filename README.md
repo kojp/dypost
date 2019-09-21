@@ -1,5 +1,5 @@
 # dypost
-DynalistのInboxまたは「特定の項目の下位」に1行ずつ投稿できます。
+[Dynalist](https://dynalist.io)のInboxまたは「特定の項目の下位」に1行ずつ投稿できます。
 
 ![](https://gyazo.com/4d505274aedd3ef2c92852f9cc67ce7f.png)
 
