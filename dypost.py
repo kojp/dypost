@@ -43,7 +43,6 @@ def post(event, resalt):
     
     #投稿先がInboxでない場合
     if appendToInbox==0:
-        #dict={'token'  :  token, 'file_id' : file_id,'changes' : [{"action": "insert","parent_id": parent_node_id,"index": 0,"content": t}]}
         dict={'token'  :  token, 'file_id' : file_id,'changes' : [{"action": "insert","parent_id": parent_node_id,"index": index,"content": t}]}
         response = requests.post('https://dynalist.io/api/v1/doc/edit', json.dumps(dict), headers={'Content-Type': 'application/json'})
         
@@ -95,12 +94,8 @@ def enter(event):
 
 ###Control + Enterキーが押されたときのアクション
 def postclose(event):
-    
-    #post(event, 0)
-    #messagebox.showinfo("hoge", "resalt="resalt)
     resalt=post(event, 0)
     if resalt==1:
-    #if resalt==1:
         root.destroy()  #ウィンドウを閉じる
 
 ###Escキーが押されたときのアクション
@@ -114,7 +109,6 @@ text.pack(fill='x',padx=30,pady=30,anchor=tkinter.CENTER)
 text.bind('<Key-Return>', enter)  #投稿するためのキー
 text.bind('<Control-Return>',postclose)  #投稿し、エラーがなければウィンドウを閉じるためのキー
 text.bind('<Key-Escape>', clear)  #入力欄の内容を消すためのキー
-#text.bind('<Control-Escape>',close)  #ウィンドウを閉じるためのキー
 text.focus_set()
 
 ###キー操作を説明するラベル
