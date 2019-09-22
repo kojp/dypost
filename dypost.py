@@ -23,19 +23,6 @@ parent_node_id='YOUR_PARENT_NODE_ID'
 #末尾にする = -1
 index=0
 
-###投稿後にDynalistをブラウザで自動で開くか
-#開く＝1 / 開かない=0
-open=0
-
-###投稿後にDynalistをブラウザで自動で開く場合のURLの指定
-url="https://dynalist.io/"
-
-###ウィンドウ
-root = tkinter.Tk()
-root.title=("Append to Dynalist")
-root.geometry("500x200")
-root.configure(bg='#ffffff')  #ウィンドウの背景色。変更可能
-
 def post(event, resalt):
     
     # テキストボックスの内容を取得
@@ -83,11 +70,7 @@ def post(event, resalt):
     
     #入力欄にフォーカスする
     text.focus_set()
-    
-    #ブラウザでDynalistを開く設定がオンの場合
-    if open==1:
-        webbrowser.open("https://dynalist.io/")
-    
+
 ###Enterキーが押されたときのアクション
 def enter(event):
     post(event, 0)
@@ -103,6 +86,15 @@ def clear(event):
     text.delete(0, tkinter.END)  #入力欄の内容を消す
     text.focus_set()
 
+###ウィンドウ
+root = tkinter.Tk()
+if appendToInbox==1:
+    root.title("Append to inbox of Dynalist")  #タイトルバーのタイトル
+else:
+    root.title("Append to Dynalist")  #タイトルバーのタイトル
+root.geometry("500x200")  #ウィンドウの大きさ(px)
+root.configure(bg='#ffffff')  #ウィンドウの背景色。変更可能
+
 ###入力欄
 text = tkinter.Entry(root,font=("","12"),bg='#ffffff',fg='black')  #「12は」入力欄のフォントサイズ。bgは背景色、fgは文字色。いずれも変更可能。
 text.pack(fill='x',padx=30,pady=30,anchor=tkinter.CENTER)
@@ -117,15 +109,5 @@ h2.pack(anchor=tkinter.W,side=tkinter.BOTTOM,padx=30)
 
 h1=tkinter.Label(root, text="<Enter> : Post / <Esc> : Clear",font=("","9"),bg="#ffffff")
 h1.pack(anchor=tkinter.W,side=tkinter.BOTTOM,padx=30)
-
-###投稿先を示すラベル
-#投稿先がInboxの場合
-if appendToInbox==1:
-    title = tkinter.Label(root, text="[Append to Inbox]",font=("","9"),bg="#ffffff")
-    title.pack(anchor=tkinter.W,side=tkinter.BOTTOM,padx=30)
-#投稿先がInboxでない場合
-else:
-    title = tkinter.Label(root, text="[Append to Dynalist]",font=("","9"),bg="#ffffff")
-    title.pack(anchor=tkinter.W,side=tkinter.BOTTOM,padx=30)
 
 root.mainloop()
