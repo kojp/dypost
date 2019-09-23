@@ -1,7 +1,7 @@
 # dypost
 [Dynalist](https://dynalist.io)のInboxまたは「特定の項目の下位」に1行ずつ投稿できます。
 
-![](https://gyazo.com/bf40b3f8e9abee905963ddb54fb1fc06.png)
+![](https://gyazo.com/3b5600e0f1aad0c7a382c3b0e713b541.png)
 
 入力欄に入力してEnterキーを押すだけです。
 
